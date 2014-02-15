@@ -1,5 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Self-documentation]]></title><description><![CDATA[On the decisions I make and the things I create]]></description><link>http://russplaysguitar.github.io/</link><generator>Ghost v0.4.1</generator><lastBuildDate>Sat, 15 Feb 2014 22:43:10 GMT</lastBuildDate><atom:link href="http://russplaysguitar.github.io/rss/" rel="self" type="application/rss+xml"/><author><![CDATA[Russ Spivey]]></author><ttl>60</ttl><item><title><![CDATA[Why am I writing this blog?]]></title><description><![CDATA[<p>I'm starting something new this year. No, it's not just a new blog.</p>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Self-documentation]]></title><description><![CDATA[On the decisions I make and the things I create]]></description><link>http://russplaysguitar.github.io/</link><generator>Ghost v0.4.1</generator><lastBuildDate>Sat, 15 Feb 2014 23:38:57 GMT</lastBuildDate><atom:link href="http://russplaysguitar.github.io/rss/" rel="self" type="application/rss+xml"/><author><![CDATA[Russ Spivey]]></author><ttl>60</ttl><item><title><![CDATA[How I publish this blog]]></title><description><![CDATA[<h5 id="imafanofsimplicity">I'm a fan of simplicity.</h5>
+
+<p>This blog is simply a static site hosted on <a href='http://pages.github.com/' >GitHub pages</a> and powered by <a href='http://ghost.org/' >Ghost</a> to make administration easy. To make it look good, I skinned it with a theme from <a href='http://themeforest.com/' >ThemeForest</a>. </p>
+
+<p>However, Ghost doesn't generate static content out-of-the-box. So how did I do that? <a href='https://github.com/axitkhurana/buster' >Buster</a>, a static site generator for Ghost. The README isn't too great for Buster, so luckily I found this great tutorial (see the last step below).</p>
+
+<h5 id="howtoimitateandflatterme">How to imitate (and flatter) me</h5>
+
+<p>If you're a developer, then you can get started by following these steps:</p>
+
+<ol>
+<li>Download the <a href='https://github.com/TryGhost/Ghost/releases' >latest Ghost release</a> and extract it.  </li>
+<li>(Optional) Place your Ghost theme in a new folder in <code>content/themes/</code>.  </li>
+<li>Run <code>npm install</code> to install Ghost's dependencies.  </li>
+<li>Edit the url in the <code>production</code> section of <code>/config.js</code>.  </li>
+<li>Start Ghost: <code>npm start --production</code>.  </li>
+<li>Admin your blog at: <a href='http://localhost:2368/ghost/' >http://localhost:2368/ghost/</a> (that's the default url).  </li>
+<li>When your blog is ready, follow this guide to get Buster set up and deploy to GitHub pages: <a href='http://www.metacotta.com/ghost-static-site-generation-with-buster/' >Ghost static site generation with Buster</a>. </li>
+</ol>
+
+<p>If you're not a developer, don't bother with following the above steps. I recommend going with a <a href='https://ghost.org/' >hosted solution</a> of Ghost. </p>
+
+<p>Keep in mind that although your static site will be versioned on GitHub, you should probably set up version control for your source, too. However, since the source may contain a database with your password in it (Ghost uses sqlite by default), you may wish to keep your source private (tip: <a href='http://gitlab.com/' >gitlab</a> offers free private git repos). I also recommend placing <code>static</code> in <code>.gitignore</code>, since the contents of that folder are what is versioned on GitHub pages. </p>
+
+<p>Alright, that was fun! Let me know if I missed anything.</p>]]></description><link>http://russplaysguitar.github.io/how-i-publish-this-blog/</link><guid isPermaLink="false">21a80302-068a-4aa3-b652-8616b692014b</guid><category><![CDATA[github]]></category><dc:creator><![CDATA[Russ Spivey]]></dc:creator><pubDate>Sat, 15 Feb 2014 23:38:16 GMT</pubDate></item><item><title><![CDATA[Why am I writing this blog?]]></title><description><![CDATA[<p>I'm starting something new this year. No, it's not just a new blog.</p>
 
 <p>I've been working with a small team on some new ideas. Although it's still in the early stages, I think we're going to be building something that is really quite great.</p>
 
