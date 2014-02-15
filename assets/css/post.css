@@ -1,0 +1,383 @@
+/* === FLATINA POST === */
+.flatina-post-title{
+    background:#3b576d;
+    padding: 11px 45px 13px 21px;
+    position: relative;
+}
+
+#flatina-index-wrapper.flatina-detail .flatina-post-title{
+    padding: 12px 21px 16px;
+}
+
+.flatina-post-title h2{
+    margin:0;
+    font-size:1.3em;
+    line-height:26px;
+    font-family:'Open Sans', sans-serif;
+    color:#fff;
+}
+
+#flatina-index-wrapper.flatina-detail .flatina-post-title h2{
+    font-size:1.4em;
+    line-height:28px;
+}
+
+.flatina-post-title h2 a{
+    color:#fff;
+}
+
+.flatina-post-title h2 a:hover{
+    color:#ccc;
+}
+
+
+/* === FLATINA EXCERPT === */
+.flatina-post-excerpt {
+    line-height: 23px;
+    font-size: 15px;
+    font-family: 'Roboto',sans-serif;
+    color: #0d0d0d;
+    background:#fff;
+    font-weight:300;
+    padding:16px 20px 20px;
+    border-left:1px solid #d8d8d8;
+    border-right:1px solid #d8d8d8;
+    border-bottom:1px solid #e2e2e2;
+}
+
+.flatina-post-excerpt p{
+    margin:3px 0px 12px;
+}
+
+.flatina-post-excerpt p img{
+    width:100%;
+}
+
+.flatina-post-excerpt iframe{
+    width:100% !important;
+    margin:3px 0px 11px;
+}
+/* === FLATINA EXCERPT === */
+
+
+/* === FLATINA INFO === */
+.flatina-post-info{
+    position: relative;
+    border-bottom:2px solid #ddd;
+    border-left:1px solid #d8d8d8;
+    border-right:1px solid #d8d8d8;
+    background:#fff;
+}
+
+.flatina-post-info .right a {
+    display: block;
+    color: #7a7a7a;
+    position: absolute;
+    right: 0;
+    height: 100%;
+    padding: 11px 17px;
+    font-size: 14px;
+    transition: ease 0.3s;
+    border-left: 1px solid #e2e2e2;
+}
+
+.flatina-post-info .right a:hover{
+    background: #01a2d1;
+    color: #fff;
+}
+
+.flatina-post-info .right a i{
+    margin-right:2px;
+    font-size:13px;
+}
+
+.flatina-post-info .left{
+    width: 85%;
+}
+
+.flatina-post-info ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.flatina-post-info ul li{
+    float: left;
+    color:#888;
+}
+
+.flatina-post-info ul li a{
+    display: block;
+    color: #aaa;
+    font-size: 1.4em;
+    border-right: 1px solid #e2e2e2;
+    text-align:center;
+}
+
+.flatina-post-info ul li a.share-facebook{
+    padding: 8px 16px 8px 16px;
+}
+
+.flatina-post-info ul li a:hover{
+    color:#fff;
+}
+
+a.share-facebook:hover {
+    background: #0781d7;
+    border-right-color: #0781d7;
+}
+
+a.share-twitter:hover {
+    background: #0bb6db;
+    border-right-color: #0bb6db;
+}
+
+a.share-google-plus:hover {
+    background: #f75f5f;
+    border-right-color: #f75f5f;
+}
+
+.flatina-post-info ul li a.share-twitter{
+    padding: 8px 14px 8px 14px;
+}
+.flatina-post-info ul li a.share-google-plus{
+    padding: 8px 15px 8px 15px;
+}
+
+.flatina-post-tag{
+    padding: 12px 17px 11px;
+}
+
+.flatina-post-tag i{
+    margin-right:3px;
+    color: #aaa;
+}
+
+.flatina-post-tag .fa-tag{
+    margin-right:1px;
+}
+
+.flatina-post-tag .glyphicon-comment{
+    font-size: 13px;
+}
+
+.flatina-comment{
+    padding: 0 !important;
+    font-size: 14px !important;
+    display: inline !important;
+    border-right: 0 !important;
+    color:#888 !important;
+}
+
+.flatina-comment:hover{
+    color:#269abc !important;
+}
+/* === FLATINA INFO === */
+
+
+/* === FLATINA BODY === */
+.flatina-post-body {
+    line-height: 25px;
+    font-size: 16px;
+    font-family: 'Roboto',sans-serif;
+    color: #000;
+    background:#fff;
+    font-weight:300;
+    padding:22px;
+    border-left:1px solid #d8d8d8;
+    border-right:1px solid #d8d8d8;
+}
+
+.flatina-post-body p{
+    margin:0 0 15px;
+}
+
+.flatina-post-body p img{
+    width:100%;
+}
+
+.flatina-post-body iframe{
+    width:100% !important;
+    margin-bottom:10px;
+}
+
+.flatina-post-body h1,
+.flatina-post-body h2,
+.flatina-post-body h3,
+.flatina-post-body h4,
+.flatina-post-body h5,
+.flatina-post-body h6{
+    color:#565656;
+    line-height: 1.3em;
+    margin:6px 0px 5px;
+    text-indent:-1px;
+    font-weight:600;
+}
+
+.flatina-post-body strong{
+    color:#222;
+    font-weight:500;
+}
+
+.flatina-post-body a{
+    color: #00327E;
+}
+
+.flatina-post-body a:hover{
+    color:#bbb;
+}
+
+.flatina-post-body h4{
+    color: #333;
+}
+
+.flatina-post-body h4{
+    color: #484848;
+}
+
+.flatina-post-body h5{
+    color: #353535;
+}
+
+.flatina-post-body h6{
+    color: #252525;
+}
+
+.flatina-post-body input[type='text'],
+.flatina-post-body input[type='password'],
+.flatina-post-body select,
+.flatina-post-body textarea{
+    border: 1px solid #c7c7c7;
+    font-size: 14px;
+    padding: 5px 12px;
+    color:#606060;
+}
+
+.flatina-post-body select{
+    padding: 5px 8px;
+}
+
+#flatina-index-wrapper.flatina-detail .flatina-post-info{
+    border-bottom:0;
+    border-top:1px solid #e3e3e3;
+}
+
+#flatina-index-wrapper.flatina-detail .flatina-post-tag{
+    padding:14px 17px 11px;
+}
+
+#flatina-index-wrapper.flatina-detail .flatina-post-info ul li a.share-facebook{
+    padding: 10px 16px;
+}
+#flatina-index-wrapper.flatina-detail .flatina-post-info ul li a.share-twitter{
+    padding: 10px 14px;
+}
+#flatina-index-wrapper.flatina-detail .flatina-post-info ul li a.share-google-plus{
+    padding: 10px 15px;
+}
+
+#flatina-index-wrapper.flatina-detail .flatina-post-tag .fa-tag{
+	margin-left:9px;
+}
+/* === FLATINA POST === */
+
+/* === FLATINA POST AUTHOR */
+.flatina-post-author{
+    padding: 30px;
+    background: #5A8BAC;
+    background-size: cover;
+    background-repeat:no-repeat;
+    border-left:1px solid #d8d8d8;
+    border-right:1px solid #d8d8d8;
+    color:#fff;
+    font-family: 'Roboto',sans-serif;
+}
+
+.flatina-post-author .flatina-author-img{
+    margin-bottom:0px;
+    margin-right:25px;
+}
+
+.flatina-author-bio h3 {
+    line-height: 0.7em;
+    font-size: 1.4em;
+    font-weight: 600;
+    color: #fff;
+    margin-top: 1px;
+}
+
+.flatina-author-bio-info{
+    margin:15px 0px 12px;
+}
+
+.flatina-author-bio-info ul{
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+
+.flatina-author-bio-info ul li{
+    float:left;
+}
+
+.flatina-author-bio-info a{
+    color:#fff;
+}
+
+.flatina-author-bio-info a:hover{
+    color:#ccc;
+}
+
+.flatina-author-bio-info i{
+    margin-right:4px;
+}
+
+.flatina-author-bio-info .fa-map-marker,
+.flatina-author-bio-info .fa-envelope{
+    margin-left:15px;
+}
+
+.flatina-author-bio-info .fa-map-marker{
+    font-size:15px;
+}
+
+.flatina-author-left{
+    width:80%;
+}
+
+.flatina-author-description{
+    line-height: 23px;
+}
+
+.flatina-author-img .flatina-cover-img{
+    height:98px;
+}
+/* === FLATINA POST AUTHOR */
+
+/* === FLATINA DISQUS === */
+.flatina-disqus{
+    margin-top: 43px;
+    background: #fff;
+    border-left: 1px solid #d8d8d8;
+    border-right: 1px solid #d8d8d8;
+    border-bottom: 2px solid #ddd;
+    border-top: 1px solid #e8e8e8;
+    padding: 26px 29px;
+}
+
+.flatina-disqus a{
+    color:#444;
+}
+/* === FLATINA DISQUS === */
+
+.featured .flatina-post-title:after{
+    content:" ";
+    position: absolute;
+    right: 0;
+    background: #3CA5C9 url('../img/flatina-star-icon.png') no-repeat center center;
+    top: 0;
+    width:45px;
+    font-size: 18px;
+    color: #fff;
+    height: 100%;
+}

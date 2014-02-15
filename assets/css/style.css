@@ -1,0 +1,632 @@
+/* ==========================================================================
+   Table of Contents
+   ========================================================================== */
+
+/*
+    1.  General
+    2.  Theme CSS
+    3.  Media Queries
+ */
+ 
+/* ==========================================================================
+   1. General - Setting up some base styles
+   ========================================================================== */
+body {
+    font-family: 'Open Sans', sans-serif;
+    color: #3A4145;
+    background: #f4f4f4;
+    font-size:14px;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+}
+
+::-moz-selection {
+    color: #222;
+    background: #D6EDFF;
+    text-shadow: none;
+}
+
+::selection {
+    color: #222;
+    background: #D6EDFF;
+    text-shadow: none;
+}
+
+h1, h2, h3,
+h4, h5, h6 {
+    font-family: 'Open Sans', sans-serif;
+    text-rendering: optimizeLegibility;
+    letter-spacing: -1px;
+    text-indent: -2px;
+    line-height: 1;
+    margin-top: 0;
+    margin: 1.2em 0 6px 0;
+}
+
+h1 {
+    font-size: 1.5em;
+}
+
+h2 {
+    font-size: 1.4em;
+}
+
+h3 {
+    font-size: 1.3em;
+}
+
+h4 {
+    font-size: 1.2em;
+}
+
+h5 {
+    font-size: 1.1em;
+}
+
+h6 {
+    font-size: 1em;
+}
+
+a {
+    transition: color ease 0.3s;
+}
+
+a:hover {
+    text-decoration:none;
+}
+
+h1 a, h2 a, h3 a,
+h4 a, h5 a, h6 a {
+    color: #50585D;
+}
+
+
+ul, ol {
+    margin: 1em 0;
+}
+
+ol ol, ul ul,
+ul ol, ol ul {
+    margin: 0.4em 0;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #efefef;
+    margin: 1.2em 0;
+    padding: 0;
+    color: #ccc;
+}
+
+blockquote {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 1.6em 0;
+    padding: 0.9em 0.9em 1.1em 1.3em;
+    border-left: #69C49C 0.4em solid;
+    background: #f9f9f9;
+}
+
+blockquote p {
+    margin: 0.8em 0;
+    font-style: italic;
+    font-size: 15px;
+    line-height: 1.5em;
+    color: #000;
+}
+
+blockquote small {
+    display: inline-block;
+    margin: 0 0 0 0.5em;
+    font-size: 1em;
+    color: #505050;
+}
+
+blockquote small:before { content: '\2014 \00A0'; }
+
+blockquote cite {
+    font-weight: bold;
+}
+
+blockquote cite a { font-weight: normal; }
+
+
+dl {
+    margin: 1.6em 0;
+}
+
+dl dt {
+    float: left;
+    width: 180px;
+    overflow: hidden;
+    clear: left;
+    text-align: right;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: bold;
+    margin-bottom: 1em
+}
+
+dl dd {
+    margin-left: 200px;
+    margin-bottom: 1em
+}
+
+mark {
+    background-color: #ffc336;
+}
+
+code, tt {
+    padding: 1px 3px;
+    font-family: Inconsolata, monospace, sans-serif;
+    font-size: 0.85em;
+    white-space: pre;
+    border: 1px solid #E3EDF3;
+    background: #F7FAFB;
+    border-radius: 2px;
+}
+
+pre {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 1.8em 0;
+    border: 1px solid #E3EDF3;
+    width: 100%;
+    padding: 10px;
+    font-family: Inconsolata, monospace, sans-serif;
+    font-size: 0.9em;
+    white-space: pre;
+    overflow: auto;
+    background: #F7FAFB;
+    border-radius: 3px;
+}
+
+pre code, tt {
+    font-size: inherit;
+    white-space: -moz-pre-wrap;
+    white-space: pre-wrap;
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+
+kbd {
+    display: inline-block;
+    margin-bottom: 0.4em;
+    padding: 1px 8px;
+    border: #ccc 1px solid;
+    color: #666;
+    text-shadow: #fff 0 1px 0;
+    font-size: 0.9em;
+    font-weight: bold;
+    background: #f4f4f4;
+    border-radius: 4px;
+    box-shadow: 
+        0 1px 0 rgba(0, 0, 0, 0.2), 
+        0 1px 0 0 #fff inset;
+}
+
+.left{
+    float:left;
+}
+
+.right{
+    float:right;
+}
+
+
+/* ==========================================================================
+   2. Theme CSS - Private CSS
+   ========================================================================== */
+[id*='-wrapper'] .container{
+    width:850px;
+    margin:0 auto;
+}
+
+/* === FLATINA HEADER === */
+#flatina-header-wrapper{
+    text-align:center;
+    background:#1B2730;
+    background-position:50% 0px;
+    background-repeat:initial;
+    background-size:cover;
+}
+
+#flatina-header-wrapper .col-md-12{
+    padding:48px 0px;
+}
+
+#flatina-logo{
+    margin-bottom:23px;
+    margin-top: 4px;
+}
+
+.flatina-cover-figure{
+    margin:0 auto;
+    display: table;
+    position: relative;
+    text-align: center;
+    border-radius: 100%;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.flatina-cover-img{
+    display: block;
+    width: 99px;
+    height: 99px;
+    background-size: cover;
+    background-position: center center;
+}
+
+#flatina-site-title{
+    font-size:19px;
+}
+
+#flatina-site-title h1,
+#flatina-site-title h1 a{
+    color:#fff;
+    margin:6px 0px;
+    font-weight: 600;
+}
+
+#flatina-site-title h1 a:hover{
+    color:#999;
+}
+
+#flatina-site-description{
+    color:#e9e9e9;
+    font-size:19px;
+    margin-top:12px;
+}
+
+#flatina-social-header{
+    margin-top:14px;
+}
+
+.flatina-social-media a{
+    color: #E7E7E7;
+    margin-right: 8px;
+    font-size: 24px;
+}
+
+.flatina-social-media a:hover{
+    color: #999;
+}
+/* === FLATINA HEADER === */
+
+
+/* === FLATINA INDEX === */
+#flatina-index-wrapper .container{
+    background:url('../img/flatina-vertical-bg.png') repeat-y;
+    padding-top:43px;
+    padding-bottom:35px;
+}
+
+#flatina-index-wrapper .col-md-2{
+    padding-left:0;
+    padding-right:0;
+    text-align:center;
+}
+
+#flatina-index-wrapper .col-md-10{
+    padding-right:0;
+    padding-left:20px;
+}
+
+.flatina-post .row{
+    margin-bottom:48px;
+}
+
+.flatina-post .flatina-cover-img{
+    display: block;
+    width: 99px;
+    height: 96px;
+    background-size: cover;
+    background-position: center center;
+}
+
+.flatina-post .flatina-author-img{
+    margin-bottom:18px;
+}
+
+.flatina-author-name{
+    background: #2a85a3;
+    padding: 5px 10px 6px;
+    color: #fff;
+    text-align: center;
+    font-size: 13px;
+    margin:0px 18px 12px;
+}
+
+.flatina-author-name i{
+    margin-right:3px;
+}
+
+.flatina-post-date{
+    margin:0px 18px 11px;
+    text-align: center;
+}
+
+.flatina-post-date-1{
+    padding:4px 10px 4px;
+    background:#e75f5f;
+    color:#fff;
+    text-transform:uppercase;
+    font-size:13px;
+}
+
+.flatina-post-date-2{
+    background:#fff;
+    color:#333;
+    padding: 5px 10px 10px;
+    border-left:1px solid #e8e8e8;
+    border-right:1px solid #e8e8e8;
+    border-bottom:2px solid #ddd;
+}
+
+.flatina-post-date-2-d{
+    font-size:18px;
+    color:#111;
+}
+
+.flatina-post-date-2-f{
+    font-size:13px;
+}
+/* === FLATINA INDEX === */
+
+
+/* === FLATINA PAGINATION === */
+#flatina-pagination .row{
+    margin-bottom:0px;
+    text-align:center;
+}
+
+#flatina-pagination .pagination{
+    margin:0 0 15px;
+}
+
+.page-number,
+.newer-posts{
+    display:none;
+}
+
+.older-posts{
+    display: block;
+    margin-right: 31px;
+    background: #fff;
+    padding: 10px 25px;
+    color: #333;
+    border-left: 1px solid #d8d8d8;
+    border-right: 1px solid #d8d8d8;
+    border-bottom: 2px solid #ddd;
+    border-top: 1px solid #e3e3e3;
+}
+
+.older-posts:hover{
+    background: #01a2d1;
+    color: #FFF;
+    border-left: 1px solid #01a2d1;
+    border-right: 1px solid #01a2d1;
+    border-bottom: 2px solid #269DC0;
+    border-top: 1px solid #01a2d1;
+}
+
+#infscr-loading{
+    text-align: center;
+    width: 834px;
+    padding-left: 122px;
+    color:#CF0E0E;
+    margin-bottom:20px;
+    line-height: 23px;
+}
+/* === FLATINA PAGINATION === */
+
+
+/* === FLATINA FOOTER === */
+#flatina-footer-wrapper{
+    background:#1c2429;
+    color:#ccc;
+    font-size:13px;
+    padding:24px 0px;
+}
+
+#flatina-footer-wrapper .col-md-12{
+    padding-left:0;
+    padding-right:0;
+    text-align:center;
+    line-height: 22px;
+}
+
+#flatina-footer-wrapper  a{
+    color:#aaa;
+}
+
+#flatina-footer-wrapper a:hover{
+    color:#fff;
+}
+
+/* === FLATINA FOOTER === */
+
+
+/* === FLATINA DETAIL === */
+#flatina-index-wrapper.flatina-detail .container{
+    background:none;
+}
+/* === FLATINA DETAIL === */
+
+
+/* === FLATINA STATIC PAGE === */
+#flatina-static-page-wrapper {
+    background: #20415D;
+    border-top: 2px solid #2A495D;
+}
+
+#flatina-static-page-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+#flatina-static-page-menu ul li{
+    display: inline-block;
+    padding: 14px 14px 17px;
+    transition: ease 0.3s;
+    font-size: 17px;
+}
+
+#flatina-static-page-menu ul li:hover a{
+    color: #7D9AB2;
+}
+
+#flatina-static-page-menu ul li a {
+    color: #fff;
+}
+
+.tinynav { display: none }
+/* === FLATINA STATIC PAGE === */
+
+
+/* ==========================================================================
+   3. Media Queries
+   ========================================================================== */
+@media only screen and (max-width: 990px) {   
+    [id*='-wrapper'] .container{
+        width:auto;
+        margin:auto;
+    }
+    
+    [class*='-md-']{
+        padding-left:20px !important;
+        padding-right:20px !important;
+    }
+    
+    #flatina-index-wrapper .container{
+        background:none;
+        padding-top: 22px;
+        padding-bottom: 22px;
+    }
+    
+    #flatina-index-wrapper .col-md-2{
+        display:none;
+    }
+    
+    #flatina-index-wrapper .col-md-10{
+        padding-right:0;
+        padding-left:0px;
+    }
+    
+    .flatina-post .row{
+        margin-bottom:31px;
+    }
+    
+    .flatina-hide{
+        display:none;
+    }
+    
+    .older-posts{
+        margin-right: 0px !important;
+    }
+    
+    #infscr-loading{
+        width: auto !important;
+        padding-left: 0 !important;
+        padding-left:20px !important;
+        padding-right:20px !important;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .flatina-author-left {
+        width:100% !important;
+    }
+    
+    .flatina-post-author .flatina-author-img {
+        margin-bottom: 20px !important;
+    }
+    
+    .flatina-author-bio-info {
+        margin-top:16px !important;
+        margin-bottom:7px !important;
+    }
+    
+    .flatina-author-bio-info ul li {
+        float:none !important;
+        margin-bottom: 5px;
+    }
+    
+    .flatina-author-bio-info .fa-map-marker,
+    .flatina-author-bio-info .fa-envelope{
+        margin-left:0 !important;
+    }
+}
+
+@media only screen and (max-width: 600px){
+    .tinynav { display: block }
+    #nav { display: none }
+    
+    #flatina-static-page-menu select {
+        margin: 15px auto;
+        width: 100%;
+        padding: 6px;
+        border: 0px;
+    }
+}
+
+@media only screen and (max-width: 475px) {
+    .flatina-post-tag {
+        display:none;
+    }   
+    
+    .flatina-post-info .right a {
+        border-left:0 !important;
+    }
+    
+    .flatina-post-info .right a:hover{
+        background:none !important;
+        color:#13779E !important;
+    }
+    
+    .flatina-social-media a{
+        margin-right: 7px;
+    }
+    
+    .flatina-post-excerpt iframe {
+        width:100% !important;
+        height:auto !important;
+        max-width:100% !important;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    [class*='-md-']{
+        padding-left:10px !important;
+        padding-right:10px !important;
+    }
+    
+    #flatina-index-wrapper .container{
+        padding-top: 14px !important;
+        padding-bottom: 14px !important;
+    }
+    
+    .flatina-post-info .left {
+        width:100% !important;
+        border-bottom:1px solid #e2e2e2;
+    }
+    
+    .flatina-post-info .right a{
+        position:relative !important;
+    }
+    
+    .flatina-disqus {
+        margin-top: 20px !important;
+    }
+    
+    .flatina-post .row {
+        margin-bottom: 20px !important;
+    }
+
+}
