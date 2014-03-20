@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
     
-    <title>Contact me</title>
+    <title>Designing a node stack</title>
     <meta name="description" content="" />
 
     <meta name="HandheldFriendly" content="True" />
@@ -30,10 +30,10 @@
     
     <meta name="generator" content="Ghost 0.4" />
 <link rel="alternate" type="application/rss+xml" title="Code and comments" href="../rss/index.html">
-<link rel="canonical" href="http://russplaysguitar.github.io/contact-me/" />
+<link rel="canonical" href="http://russplaysguitar.github.io/designing-a-node-stack/" />
 </head>
 
-<body class="post-template page">
+<body class="post-template">
     
 <div id="flatina-header-wrapper"  class="parallax" style="background-image:url('../content/images/2014/Feb/IMG_0174-1.jpg');" data-velocity=".8" >
     <div class="container">
@@ -72,7 +72,7 @@
                     <ul id="nav">
                         <li class="selected"><a href="http://russplaysguitar.github.io">Home</a></li>
                         <li><a href="../about-me/index.html">About Me</a></li>
-                        <li><a href="index.html">Contact</a></li>
+                        <li><a href="../contact-me/index.html">Contact</a></li>
                     </ul>
                 </div>
             </div>
@@ -88,34 +88,101 @@
     <div class="container" role="main">
         <div class="flatina-post">
             
-                <div class="row post page" itemscope itemtype="http://schema.org/Article">
+                <div class="row post" itemscope itemtype="http://schema.org/Article">
                     <div class="col-md-12">
                         <div class="flatina-post-row">
-                            <div class="flatina-post-title"><h2 itemprop="headline">Contact me</h2></div>
+                            <div class="flatina-post-title"><h2 itemprop="headline">Designing a node stack</h2></div>
 
                             <div class="flatina-post-body" itemprop="articleBody">
-                                <p>Seeing as how I'm not a fan of spam emails and I don't have the time to read a bunch of nonsense, I won't be publishing my email here. If you'd like to contact me, you're welcome to keep it under 140 characters and send it to me on <a href="http://twitter.com/its_russ">Twitter</a>. If you have a problem with some software I've written, I encourage you to open a new issue for it on <a href="http://github.com/russplaysguitar">GitHub</a>. Please submit all other inquiries via curl to <a href="http://devnull-as-a-service.com">/dev/null</a>.</p>
+                                <p>My start-up group is in the process of building our team for our latest project (working title: "Devshare"), so I'd like to take a few minutes to explain the software stack we're designing for future newcomers. </p>
+
+<h4 id="waitwhynodejs">Wait, why Node.js?</h4>
+
+<p>Good question! There are a lot of ways to write a web-based software platform. Ruby on Rails seems like the most popular solution for most sites, and I think it is good for most things. It probably would've been a good choice for us, too. </p>
+
+<p>So here are the biggest reason's why I chose Node.js: </p>
+
+<ul>
+<li>It's just Javascript. I know it well, and chances are you do, too. </li>
+<li>There's no magic. Rails has too much magic (in my opinion). </li>
+<li>It's asynchronous by default, which encourages scalable design. </li>
+</ul>
+
+<p>If you're looking for a more thorough explanation of what's so cool about Node.js in general, see: <a href="http://www.toptal.com/nodejs/why-the-hell-would-i-use-node-js">Why The Hell Would I Use Node.js? A Case-by-Case Introduction</a></p>
+
+<p>And then there's the fact that I just wanted to learn it for my own reasons, and no one could tell me not to. Freedom of choice is one of the best things about working on your own projects. </p>
+
+<h4 id="swagger">Swagger</h4>
+
+<p>Node.js has no shortage of frameworks, and I spent weeks evaluating the options, some by reading docs, some by testing. I picked the API framework, <a href="https://helloreverb.com/developers/swagger">Swagger</a>, first. It was almost a no-brainer, as I haven't ever seen a RESTful API framework that is built in a cross-platform, declarative manner. Since a huge part of DevShare is  the API itself, I wanted to make it as solid and easy to use as possible, which I've done thanks to <a href="https://github.com/wordnik/swagger-node-express/">swagger-node-express</a> and <a href="https://github.com/wordnik/swagger-ui">swagger-ui</a>. </p>
+
+<h4 id="knexandbookshelf">Knex and Bookshelf</h4>
+
+<p>Choosing the ORM and database framework was a lot harder. There are a few that I really want to like, but ran into various gotchas with. I wound up choosing <a href="http://bookshelfjs.org/">Bookshelf</a> (which utilizes <a href="http://knexjs.org/">Knex</a>) because: </p>
+
+<ul>
+<li>It's a lot like <a href="http://backbonejs.org/">Backbone.js</a>, which I know and love. </li>
+<li>It supports Sqlite and Postgres. </li>
+<li>Migrations are simple and easy, thanks to Knex. </li>
+<li><a href="http://ghost.org/">Ghost</a> uses it, so it is getting a lot of development right now. </li>
+</ul>
+
+<h4 id="postgres">Postgres</h4>
+
+<p>This is probably the part that I'm least excited about. Not that there's anything wrong with PG, but I just don't know enough about it yet. Part of me was hoping I could use some NoSQL solution, but I don't yet trust any of them for data integrity as much as an RDBMS. Since Bookshelf supports either MySQL or Postgres for production, that made the DB decision a lot easier. After some research, PG just made sense. Plus, I &lt;3 Heroku and they &lt;3 Postgres, so by the transitive rule, I &lt;3 Postgres. </p>
+
+<h4 id="heroku">Heroku</h4>
+
+<p>I just feel like time spent administering a web-server is time poorly spent, so I make Heroku do it for me. Other good things about using Heroku: </p>
+
+<ul>
+<li>Prevents environmental cruft from forming, since the whole project is redeployed from scratch each time, leaving only a few specific environment vars hanging around. </li>
+<li>The server can "scale-up" it's hardware quickly and easily. </li>
+<li>Anyone familiar with Heroku can understand how to deploy the project. </li>
+</ul>
+
+<h4 id="thefrontend">The "front end"</h4>
+
+<p>When I'm building a tool for developers, I like to imagine: "What if this hits the front page of HN?" If the tool is web-based, it better damn-well be able to handle that level of traffic. Since DevShare falls into the "web-based" category and I don't want to pay for a bunch of servers, the solution is to go static and cache as much data as possible on the client-side. </p>
+
+<p>Seeing as how most of DevShare's services are going to require some use of GitHub's API anyway, what makes more sense than hosting the front-end for free on <a href="http://pages.github.com/">GitHub Pages</a>? </p>
+
+<p>The front-end framework itself is still being worked out, but it will likely be built on Backbone.js. </p>
+
+<p>I'm hoping that there will eventually be other "front ends" for the project, but this will likely remain the primary one. </p>
+
+<h4 id="devops">Dev-ops</h4>
+
+<p>We're using <a href="http://flowdock.com/">Flowdock</a> and a <a href="http://hubot.github.com/">Hubot</a> instance (named Ideabot) to automate tasks common to our organization in a visible and fun way. For example, this is how we do on-boarding: <code>ideabot onboard &lt;github_user&gt; &lt;email&gt;</code> </p>
+
+<p>For continuous deployment, we have a <a href="http://www.stridercd.com/">Strider</a> instance that re-deploys DevShare whenever there's a push to master that passes all of the <a href="http://visionmedia.github.io/mocha/">Mocha</a> unit tests. </p>
+
+<h4 id="thatsall">That's all?</h4>
+
+<p>Well, that's not everything, but that's all the big stuff. It's been a fun few months designing the infrastructure of Devshare, and I'm proud of what we've accomplished so far. </p>
+
+<p>There's still a lot left to do, though. If you're interested in the things I described in this post, we are looking for more developers-- just <a href="http://twitter.com/its_russ">send me a message</a> on Twitter. </p>
                             </div>
                             
                             <div class="flatina-post-info">
                                 <div class="left">
                                     <ul>
                                         <li>
-                                            <a class="share-facebook" title="Share to Facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://russplaysguitar.github.io/contact-me/" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" data-original-title="Share to Facebook">
+                                            <a class="share-facebook" title="Share to Facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://russplaysguitar.github.io/designing-a-node-stack/" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" data-original-title="Share to Facebook">
                                                 <i class="fa fa-facebook"></i>
                                             </a>
                                         </li>
                                         <li>
-                                            <a class="share-twitter" title="Share to Twitter" href="http://twitter.com/share?text=Contact me&url=http://russplaysguitar.github.io/contact-me/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" data-original-title="Share to Twitter">
+                                            <a class="share-twitter" title="Share to Twitter" href="http://twitter.com/share?text=Designing a node stack&url=http://russplaysguitar.github.io/designing-a-node-stack/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" data-original-title="Share to Twitter">
                                                 <i class="fa fa-twitter"></i>
                                             </a>
                                         </li>
                                         <li>
-                                            <a class="share-google-plus" title="Share to Google Plus" href="https://plus.google.com/share?url=http://russplaysguitar.github.io/contact-me/" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" data-original-title="Share to Google Plus">
+                                            <a class="share-google-plus" title="Share to Google Plus" href="https://plus.google.com/share?url=http://russplaysguitar.github.io/designing-a-node-stack/" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" data-original-title="Share to Google Plus">
                                                 <i class="fa fa-google-plus"></i>
                                             </a>
                                         </li>
-                                        <li><div class="flatina-post-tag"><time datetime="2014-02-15" itemprop="datePublished"><i class="fa fa-clock-o"></i> Saturday, February 15, 2014</time> <span class="flatina-hide"></span></div></li>
+                                        <li><div class="flatina-post-tag"><time datetime="2014-03-20" itemprop="datePublished"><i class="fa fa-clock-o"></i> Thursday, March 20, 2014</time> <span class="flatina-hide"></span></div></li>
                                     </ul>
                                 </div>
                                 <div class="clearfix"></div>
@@ -150,6 +217,21 @@
                                     <div class="clearfix"></div>
                                 </div>
                             
+                            
+                            <div class="flatina-disqus">
+				<div id="disqus_thread"></div>
+                                <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'selfdocumentation'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+                            </div>
                         </div>
                     </div>
                 </div>

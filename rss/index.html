@@ -1,5 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Code and comments]]></title><description><![CDATA[An attempt to document what I'm working on]]></description><link>http://russplaysguitar.github.io/</link><generator>Ghost v0.4.1</generator><lastBuildDate>Fri, 21 Feb 2014 08:33:20 GMT</lastBuildDate><atom:link href="http://russplaysguitar.github.io/rss/" rel="self" type="application/rss+xml"/><author><![CDATA[Russ Spivey]]></author><ttl>60</ttl><item><title><![CDATA[Why not start-up?]]></title><description><![CDATA[<p>I'm not an expert at start-ups, but I do have a few failures under my belt, and there was one common issue that each of them had to address: how to divide equity. Guess what? It's not that easy. </p>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Code and comments]]></title><description><![CDATA[An attempt to document what I'm working on]]></description><link>http://russplaysguitar.github.io/</link><generator>Ghost v0.4.1</generator><lastBuildDate>Thu, 20 Mar 2014 08:18:11 GMT</lastBuildDate><atom:link href="http://russplaysguitar.github.io/rss/" rel="self" type="application/rss+xml"/><author><![CDATA[Russ Spivey]]></author><ttl>60</ttl><item><title><![CDATA[Designing a node stack]]></title><description><![CDATA[<p>My start-up group is in the process of building our team for our latest project (working title: "Devshare"), so I'd like to take a few minutes to explain the software stack we're designing for future newcomers. </p>
+
+<h4 id="waitwhynodejs">Wait, why Node.js?</h4>
+
+<p>Good question! There are a lot of ways to write a web-based software platform. Ruby on Rails seems like the most popular solution for most sites, and I think it is good for most things. It probably would've been a good choice for us, too. </p>
+
+<p>So here are the biggest reason's why I chose Node.js: </p>
+
+<ul>
+<li>It's just Javascript. I know it well, and chances are you do, too. </li>
+<li>There's no magic. Rails has too much magic (in my opinion). </li>
+<li>It's asynchronous by default, which encourages scalable design. </li>
+</ul>
+
+<p>If you're looking for a more thorough explanation of what's so cool about Node.js in general, see: <a href='http://www.toptal.com/nodejs/why-the-hell-would-i-use-node-js' >Why The Hell Would I Use Node.js? A Case-by-Case Introduction</a></p>
+
+<p>And then there's the fact that I just wanted to learn it for my own reasons, and no one could tell me not to. Freedom of choice is one of the best things about working on your own projects. </p>
+
+<h4 id="swagger">Swagger</h4>
+
+<p>Node.js has no shortage of frameworks, and I spent weeks evaluating the options, some by reading docs, some by testing. I picked the API framework, <a href='https://helloreverb.com/developers/swagger' >Swagger</a>, first. It was almost a no-brainer, as I haven't ever seen a RESTful API framework that is built in a cross-platform, declarative manner. Since a huge part of DevShare is  the API itself, I wanted to make it as solid and easy to use as possible, which I've done thanks to <a href='https://github.com/wordnik/swagger-node-express/' >swagger-node-express</a> and <a href='https://github.com/wordnik/swagger-ui' >swagger-ui</a>. </p>
+
+<h4 id="knexandbookshelf">Knex and Bookshelf</h4>
+
+<p>Choosing the ORM and database framework was a lot harder. There are a few that I really want to like, but ran into various gotchas with. I wound up choosing <a href='http://bookshelfjs.org/' >Bookshelf</a> (which utilizes <a href='http://knexjs.org/' >Knex</a>) because: </p>
+
+<ul>
+<li>It's a lot like <a href='http://backbonejs.org/' >Backbone.js</a>, which I know and love. </li>
+<li>It supports Sqlite and Postgres. </li>
+<li>Migrations are simple and easy, thanks to Knex. </li>
+<li><a href='http://ghost.org/' >Ghost</a> uses it, so it is getting a lot of development right now. </li>
+</ul>
+
+<h4 id="postgres">Postgres</h4>
+
+<p>This is probably the part that I'm least excited about. Not that there's anything wrong with PG, but I just don't know enough about it yet. Part of me was hoping I could use some NoSQL solution, but I don't yet trust any of them for data integrity as much as an RDBMS. Since Bookshelf supports either MySQL or Postgres for production, that made the DB decision a lot easier. After some research, PG just made sense. Plus, I &lt;3 Heroku and they &lt;3 Postgres, so by the transitive rule, I &lt;3 Postgres. </p>
+
+<h4 id="heroku">Heroku</h4>
+
+<p>I just feel like time spent administering a web-server is time poorly spent, so I make Heroku do it for me. Other good things about using Heroku: </p>
+
+<ul>
+<li>Prevents environmental cruft from forming, since the whole project is redeployed from scratch each time, leaving only a few specific environment vars hanging around. </li>
+<li>The server can "scale-up" it's hardware quickly and easily. </li>
+<li>Anyone familiar with Heroku can understand how to deploy the project. </li>
+</ul>
+
+<h4 id="thefrontend">The "front end"</h4>
+
+<p>When I'm building a tool for developers, I like to imagine: "What if this hits the front page of HN?" If the tool is web-based, it better damn-well be able to handle that level of traffic. Since DevShare falls into the "web-based" category and I don't want to pay for a bunch of servers, the solution is to go static and cache as much data as possible on the client-side. </p>
+
+<p>Seeing as how most of DevShare's services are going to require some use of GitHub's API anyway, what makes more sense than hosting the front-end for free on <a href='http://pages.github.com/' >GitHub Pages</a>? </p>
+
+<p>The front-end framework itself is still being worked out, but it will likely be built on Backbone.js. </p>
+
+<p>I'm hoping that there will eventually be other "front ends" for the project, but this will likely remain the primary one. </p>
+
+<h4 id="devops">Dev-ops</h4>
+
+<p>We're using <a href='http://flowdock.com/' >Flowdock</a> and a <a href='http://hubot.github.com/' >Hubot</a> instance (named Ideabot) to automate tasks common to our organization in a visible and fun way. For example, this is how we do on-boarding: <code>ideabot onboard &lt;github_user&gt; &lt;email&gt;</code> </p>
+
+<p>For continuous deployment, we have a <a href='http://www.stridercd.com/' >Strider</a> instance that re-deploys DevShare whenever there's a push to master that passes all of the <a href='http://visionmedia.github.io/mocha/' >Mocha</a> unit tests. </p>
+
+<h4 id="thatsall">That's all?</h4>
+
+<p>Well, that's not everything, but that's all the big stuff. It's been a fun few months designing the infrastructure of Devshare, and I'm proud of what we've accomplished so far. </p>
+
+<p>There's still a lot left to do, though. If you're interested in the things I described in this post, we are looking for more developers-- just <a href='http://twitter.com/its_russ' >send me a message</a> on Twitter. </p>]]></description><link>http://russplaysguitar.github.io/designing-a-node-stack/</link><guid isPermaLink="false">9dc91667-be89-4a2a-8091-2567ae02b13b</guid><dc:creator><![CDATA[Russ Spivey]]></dc:creator><pubDate>Thu, 20 Mar 2014 08:06:14 GMT</pubDate></item><item><title><![CDATA[Why not start-up?]]></title><description><![CDATA[<p>I'm not an expert at start-ups, but I do have a few failures under my belt, and there was one common issue that each of them had to address: how to divide equity. Guess what? It's not that easy. </p>
 
 <p>For some groups, disagreement on equity can even stop work or kill the project entirely-- which is insane given that the intent of start-up equity is to <em>enable</em> contributions, not prevent them. </p>
 
